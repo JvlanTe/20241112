@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 
@@ -16,7 +16,24 @@ def index():
 def increment():
     global count
     count += 1  # count - count + 1
-    return redirect(url_for("index"))
+    return jsonify({"counter": count})
+
+
+@app.route("/get_json_data")
+def get_data():
+    data = {
+        "name": "PLOT",
+        "age": 20,
+        "is_student": True,
+    }
+    return jsonify(data)
+
+
+@app.route("/decrement", methods=["POST"])
+def decrement():
+    global count
+    count -= 1
+    return jsonify({"counter": count})
 
 
 if __name__ == "__main__":

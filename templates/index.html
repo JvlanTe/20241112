@@ -11,12 +11,14 @@
 <body class="bg-light">
     <div class="container text-center mt-5 display-4">
         <h1>カウンター</h1>
-        <p>{{ count }}</p>
-        <form action="{{url_for('increment')}}" method="post">
-            <button type="submit" class="btn border-0 bg-transparent"><img src="{{ url_for('static', filename='images/hand-thumbs-up.svg')}}" width="50" alt="goodbtn"></button>
-            <button type="submit" class="btn border-0 bg-transparent"><img src="{{ url_for('static', filename='images/hand-thumbs-down.svg')}}" width="50" alt="badbtn"></button>
-        </form>
+        <p><span id="counter">{{ count }}</span></p>
+        <!-- <form action="{{url_for('increment')}}" method="post"> -->
+        <button onclick="incrementCounter()" class="btn border-0 bg-transparent"><img src="{{ url_for('static', filename='images/hand-thumbs-up.svg')}}" width="50" alt="goodbtn"></button>
+        <button onclick="DecrementCounter()" class="btn border-0 bg-transparent"><img src="{{ url_for('static', filename='images/hand-thumbs-down.svg')}}" width="50" alt="badbtn"></button>
+        <!-- </form> -->
     </div>
+    <script src="{{url_for('static',filename='js/script.js')}}">
+    </script>
 </body>
 
 </html>
